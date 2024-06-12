@@ -1,0 +1,186 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(to left top, #49243E, #704264, #BB8493,#DBAFA0,white);  animation: animateBg 2s ease infinite;
+  background-size: 400% 400%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes animateBg {
+  
+  0%{
+    background-position: 0%;
+  }
+  50%{ 
+    background-position: 100%;
+  }
+  100%{
+    background-position: 0%;
+  }
+}
+button {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 17px;
+  padding: 1em 2.7em;
+  font-weight: 500;
+  background: #f7fffa;
+  color: rgb(11, 11, 11);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.6em;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 17px;
+ border: 1px solid black;
+}
+
+.gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0.6em;
+  margin-top: -0.25em;
+  background-image: linear-gradient(
+    rgba(7, 7, 7, 0),
+    rgba(0, 0, 0, 0),
+    rgba(1, 1, 1, 0.3)
+  );
+}
+
+.label {
+  position: relative;
+  top: -1px;
+}
+
+.transition {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 500ms;
+  background-color: #970581;  border-radius: 9999px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button:hover .transition {
+  width: 14em;
+  height: 14em;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+  .container{
+      border: 2px solid black;
+       width: 50%;
+      height: 400px;
+      text-align: center;
+      margin-left: 330px;
+      margin-top: 100px;
+      box-shadow: 2px 2px 10px black;
+  
+  }
+  #name{
+    font-family: "Montagu Slab", serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color:rgb(255, 255, 255); 
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+  
+  }
+  #game{
+    font-family: "Monofett", monospace;
+    font-size: 80px;
+ 
+  }
+  .container input{
+
+    margin-top: 26px;
+    padding: 10px;
+    border: 1px solid black;
+    color: white;
+    background-color: #ff65ff;
+    
+    width: 110px;
+    font-family: "Montagu Slab", serif;
+    cursor: pointer;
+  
+  }
+  .container input:hover{
+    transform: scale(1);
+    border: 2px solid rgb(0, 0, 0);
+
+  }
+ 
+   .sign  h1{
+     font-family: "Orelega One", serif;
+   
+   }
+   
+   .sign input{
+    
+     margin-top: 22px;
+     padding: 10px;
+     border: 1px solid black;
+     color: white;
+     background-color: #970581;
+    
+     width: 180px;
+     cursor: default;
+     box-shadow: 0px 2px 6px black;
+   
+   }
+   .sign input::placeholder{
+     color: white;
+   }
+   .sign input:hover{
+    transform: none;
+   }
+  
+   .sign   p {
+
+     margin-top: 20px;
+     
+   }
+   .sign   p span{
+     color: rgb(0, 122, 0);
+     font-weight: bold;
+     text-decoration: underline;
+     cursor: pointer;
+   }
+   
+   h1{
+    animation-name: backInDown;
+    animation-duration: 0.5s; 
+    animation-timing-function: linear;
+  }
+@keyframes backInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+ 
+  

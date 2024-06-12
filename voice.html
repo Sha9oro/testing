@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <audio id="music" src="Ludovico Einaudi - Stella del mattino.mp3"></audio>
+
+    <button id="gmusic">
+        <img src="noso.png"  width="25">
+      </button>
+      <button id="nomusic">
+        <img src="so.png"  width="25">
+      </button>
+      <script>
+        const bgMusic = document.getElementById('music');
+        let play_music = document.getElementById('gmusic')
+        let stop_music = document.getElementById('nomusic')
+        play_music.addEventListener('click', playBackgroundMusic);
+        stop_music.addEventListener('click', stopBackgroundMusic);
+        function playBackgroundMusic() {
+            bgMusic.play();
+            play_music.style.display = 'none';
+            stop_music.style.display = 'block';
+        }
+        function stopBackgroundMusic() {
+            bgMusic.pause();
+            play_music.style.display = 'block';
+            stop_music.style.display = 'none';
+        }
+      </script>
+</body>
+</html>

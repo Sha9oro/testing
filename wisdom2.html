@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="wisdom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Monofett&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Orelega+One&family=Poller+One&family=Roboto:wght@500&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="wisdom.css">
+   <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+ />
+</head>
+<body>
+  <audio id="music" src="Ludovico Einaudi - Stella del mattino.mp3"></audio>
+    <!-- the menu bar start -->
+    <header>
+        <img src="/photos/flag.jpeg" id="flag"  style="width: 40px; ">
+       
+
+<br><br><br>
+<nav style="margin-left: 20px; margin-top: 70px;">
+  <div class="nav-content">
+    <div class="toggle-btn">
+      <i class='bx bx-plus'></i>
+    </div>
+    <span style="--i:1;">
+      <a href="home.html" title="home page"><i class='bx bxs-home'></i></a>
+    </span>
+    <span style="--i:2;">
+      <a href="#" title="sound"><i class='bx bxs-volume-full'></i></a>
+    </span>
+    <span style="--i:3; " onclick="closeWindow()" >
+      <a href="#" title="exit" ><i class='bx bx-exit'></i></a>
+    </span>
+    <span style="--i:4;" >
+      <a href="ranking.html" title="ranking"><i class='bx bx-star'></i></a>
+    </span>
+    <span style="--i:5;">
+      <a href="setting.html" title="setting"><i class='bx bxs-cog' ></i></a>
+    </span>
+  </div>
+</nav>
+
+       
+      </header>
+
+<!-- the menu bar end -->
+
+<!-- the main game start -->
+<br>
+<main>
+<div class="container" >
+    <h1>Guess the Wisdom</h1>
+    
+    <table id="wisdomTable " >
+      <tr>
+        <td>👏</td>
+        <td>🤫</td>
+        <td>💬</td>
+        <td>🔊</td>
+      </tr>
+    </table>
+    
+    <div id="wordChoices">
+      <h2>Word Choices:</h2>
+      <div id="words">
+        <button onclick="selectWord('words')">words</button>
+        <button onclick="selectWord('do')">do</button>
+        <button onclick="selectWord('actions')">actions</button>
+        <button onclick="selectWord('big')">big</button>
+        <button onclick="selectWord('clap')">clap</button>
+        <button onclick="selectWord('comment')">comment</button>
+        <button onclick="selectWord('louder')">louder</button>
+        <button onclick="selectWord('than')">than</button>
+        <button onclick="selectWord('this')">this</button>
+        <button onclick="selectWord('speak')">speak</button>
+        <button onclick="selectWord('talk')">talk</button>
+        <button onclick="selectWord('silence')">silence</button>
+      </div>
+    </div>
+    
+     <div id="wisdomInput">
+        <h2>Your Wisdom:</h2>
+        <input type="text" id="userWisdom" readonly>
+        <button onclick="checkWisdom()">Check</button>
+      </div>
+      <div id="rangeIndicator">
+           <h2>Range:</h2>
+           <div class="progress" style=" width: 70%; border: 2px solid black; height: 30px; margin-left: 100px; border-radius: 20px;">
+             <div id="rangeBar" style="width: 100%;  background-color: rgb(253, 30, 183); height: 30px; border-radius: 20px;">100%</div>
+          </div>
+           <div class="controls-container">
+            <p id="result"></p>
+           </div>
+           
+      </div>
+      <a href="wisdom3.html" id="link"> <button class="btn-class-name" id="mybtn">
+        <span>Next</span>
+        <svg viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
+        </path>
+        </svg>
+      </button></a>
+
+
+
+</main>
+<!-- the main game end -->
+<aside>
+  <div style="display: flex; margin-top: 0px; margin-left: 570px; color: beige; ">
+    <div class="points">
+        <h2> Points:</h2>
+        <p id="point">0</p>
+    </div>
+    <div class="rank " style="margin-left: 100px; ">
+        <h2>Rank:</h2>
+        <p >0</p>
+    </div>
+
+</div>
+</aside>
+<!-- the footer  start  -->
+
+     <h4 style="text-align: center; text-decoration: underline;" ><i>Made in morocco</i></h4>
+<!-- the footer end  -->
+
+
+<script >
+
+const nav = document.querySelector("nav"),
+toggleBtn = nav.querySelector(".toggle-btn");
+
+toggleBtn.addEventListener("click" , () =>{
+nav.classList.toggle("open");
+});
+
+
+function onDrag({movementY}) { 
+const navStyle = window.getComputedStyle(nav),
+  navTop = parseInt(navStyle.top), 
+  navHeight = parseInt(navStyle.height), 
+  windHeight = window.innerHeight; 
+
+nav.style.top = navTop > 0 ? `${navTop + movementY}px` : "1px";
+if(navTop > windHeight - navHeight){
+nav.style.top = `${windHeight - navHeight}px`;
+}
+}
+
+nav.addEventListener("mousedown", () =>{
+nav.addEventListener("mousemove", onDrag);
+});
+
+nav.addEventListener("mouseup", () =>{
+nav.removeEventListener("mousemove", onDrag);
+});
+nav.addEventListener("mouseleave", () =>{
+nav.removeEventListener("mousemove", onDrag);
+});
+
+
+var lose = new Audio();
+lose.src = "lose.mp3";
+var win = new Audio();
+win.src = "win.mp3";
+const controls = document.querySelector(".controls-container");
+const startButton = document.getElementById("start");
+const resultText = document.getElementById("result");
+let selectedWords = [];
+let loseRange = 100;
+function selectWord(word) {
+  selectedWords.push(word);
+  document.getElementById('userWisdom').value = selectedWords.join(' ');
+}
+
+
+function checkWisdom() {
+  const wisdom = ['actions', 'speak', 'louder', 'than', 'words'];
+  if (selectedWords.join(' ') === wisdom.join(' ')) {
+   
+    document.getElementById("point").innerHTML = "10"
+    document.getElementById('result').innerText = 'Congratulations! You got it right!';
+    win.play();
+    document.getElementById("mybtn").style.display = "block";
+
+  } else {
+    document.getElementById('result').innerText = 'Oops! Try again.';
+    loseRange -= 10;
+    lose.play()
+    if (loseRange <= 0) {
+      document.getElementById('result').innerText = 'Game Over!';
+      document.getElementById('wordChoices').innerHTML = '';
+    } else {
+      document.getElementById('rangeBar').style.width = loseRange + '%';
+      document.getElementById('rangeBar').innerText = loseRange + '%';
+    }
+  }
+  selectedWords = [];
+  document.getElementById('userWisdom').value = '';
+}
+    
+    
+
+   
+
+</script>
+
+</body>
+</html>
